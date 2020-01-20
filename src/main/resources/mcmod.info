@@ -1,0 +1,16 @@
+[
+{
+  "modid": "inventorycraftinggrid",
+  "name": "Inventory Crafting Grid",
+  "description": "A 3x3 crafting grid right in your inventory.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["natering"],
+  "credits": "TheDarkColour for helping me code and Lothrazar for the 1.7/8 versions",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

@@ -1,0 +1,49 @@
+import net.minecraftforge.gradle.user.patcherUser.forge.ForgeExtension
+
+buildscript {
+    repositories {
+        jcenter()
+        maven { url = "https://files.minecraftforge.net/maven" }
+    }
+    dependencies {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
+    }
+}
+apply plugin: 'net.minecraftforge.gradle.forge'
+
+version = "1.12.2-1.0"
+group = "com.natering.inventorycraftinggrid" 
+archivesBaseName = "InventoryCraftingGrid"
+
+sourceCompatibility = targetCompatibility = '1.8' 
+compileJava {
+    sourceCompatibility = targetCompatibility = '1.8'
+}
+
+minecraft {
+    version = "1.12.2-14.23.5.2847"
+    runDir = "run"
+    mappings = "stable_39"
+
+    replace "@VERSIONS@", project.version
+    replaceIn "TutorialMod.java"
+}
+
+jar {
+    manifest.attributes(
+            "FMLAT": "inventorycraftinggrid_at.cfg"
+    )
+}
+
+processResources {
+    inputs.property "version", project.version
+    inputs.property "mcversion", project.minecraft.version
+    from(sourceSets.main.resources.srcDirs) {
+        include 'mcmod.info'
+        expand 'version':project.version, 'mcversion':project.minecraft.version
+    }
+    from(sourceSets.main.resources.srcDirs) {
+        exclude 'mcmod.info'
+    }
+
+}
